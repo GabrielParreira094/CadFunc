@@ -1,0 +1,23 @@
+package model;
+
+public class Terceirizado extends Funcionario {
+    private String empresaContratada;
+
+    public Terceirizado(String nome, String matricula, double salario, String empresaContratada) {
+        super(nome, matricula, salario);
+        this.empresaContratada = empresaContratada;
+    }
+
+    public void setEmpresaContratada(String empresa) {
+        this.empresaContratada = empresa;
+    }
+
+    public String getEmpresaContratada() {
+        return empresaContratada;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Terceirizado: " + nome + " | Matrícula: " + matricula + " | Salário: " + salario + " | Empresa: " + empresaContratada);
+    }
+}
