@@ -1,0 +1,44 @@
+package controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import model.*;
+
+public class FuncionarioController {
+    private List<Funcionario> funcionarios;
+
+    public FuncionarioController() {
+        funcionarios = new ArrayList<>();
+    }
+
+    public void adicionar(Funcionario f) {
+        funcionarios.add(f);
+    }
+
+    public void listar() {
+        for (Funcionario f : funcionarios) {
+            f.exibir();
+        }
+    }
+
+    public Funcionario buscarPorMatricula(String matricula) throws FuncionarioNaoEncontradoException {
+        for (Funcionario f : funcionarios) {
+            if (f.getMatricula().equalsIgnoreCase(matricula)) {
+                return f;
+            }
+        }
+        throw new FuncionarioNaoEncontradoException("Funcionário com matrícula " + matricula + " não encontrado.");
+    }
+
+    public void atualizar(String matricula, String novoNome, double novoSalario) throws FuncionarioNaoEncontradoException {
+        Funcionario f = buscarPorMatricula(matricula);
+        f.setNome(novoNome);
+        f.setSalario(novoSalario);
+    }
+
+    public void remover(String matricula) throws FuncionarioNaoEncontradoException {
+        Funcionario f = buscarPorMatricula(matricula);
+        funcionarios.remove(f);
+    }
+}
