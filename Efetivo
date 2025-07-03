@@ -1,0 +1,23 @@
+package model;
+
+public class Efetivo extends Funcionario {
+    private String cargo;
+
+    public Efetivo(String nome, String matricula, double salario, String cargo) {
+        super(nome, matricula, salario);
+        this.cargo = cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Efetivo: " + nome + " | Matrícula: " + matricula + " | Salário: " + salario + " | Cargo: " + cargo);
+    }
+}
