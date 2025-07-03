@@ -1,0 +1,23 @@
+package model;
+
+public class Temporario extends Funcionario {
+    private int duracaoContrato; // em meses
+
+    public Temporario(String nome, String matricula, double salario, int duracaoContrato) {
+        super(nome, matricula, salario);
+        this.duracaoContrato = duracaoContrato;
+    }
+
+    public void setDuracaoContrato(int meses) {
+        this.duracaoContrato = meses;
+    }
+
+    public int getDuracaoContrato() {
+        return duracaoContrato;
+    }
+
+    @Override
+    public void exibir() {
+        System.out.println("Temporário: " + nome + " | Matrícula: " + matricula + " | Salário: " + salario + " | Contrato: " + duracaoContrato + " meses");
+    }
+}
